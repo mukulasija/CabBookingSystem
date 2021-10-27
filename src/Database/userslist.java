@@ -1,10 +1,12 @@
-package users;
+package Database;
+
+import java.util.Scanner;
 
 public class userslist {
     public static userslist head = null;
     public static userslist tail = null;
     public userslist next = null;
-    public int uid = 0;
+    public userslist uid = null;
     private String userName;
     private String password;
     public void setUsername(String userName)
@@ -28,5 +30,13 @@ public class userslist {
         }
         System.out.println("Wrong Password...\n");
         return false;
+    }
+
+    public void bookNewCab() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("From: ");
+        String fromCity = sc.next();
+        System.out.print("To: ");
+        String toCity = sc.next();
     }
 }

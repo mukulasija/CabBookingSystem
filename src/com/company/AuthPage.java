@@ -1,5 +1,5 @@
 package com.company;
-import  users.*;
+import Database.*;
 
 import java.util.Scanner;
 
@@ -43,10 +43,10 @@ public class AuthPage {
            userslist.tail.next=li;
            userslist.tail = li;
        }
-        li.uid=userslist.tail.uid+1;
+
        System.out.println("signed up successfully...\n\n\n\n");
-       int uid = li.uid;
-       userMainActivity newactivity = new userMainActivity(uid);
+       li.uid = li;
+       userMainActivity newactivity = new userMainActivity(li.uid);
 //       newactivity.showOptions();
 //       newactivity.chooseOption();
         return 0;
@@ -57,24 +57,27 @@ public class AuthPage {
         System.out.print("Enter Username: ");
         String username = sc.next();
         userslist temp = userslist.head;
+        boolean userfound = false;
         while(temp!=null)
         {
             if(temp.getUsername().equals(username))
             {
+                userfound = true;
                 System.out.print("Enter Password: ");
                 String pass = sc.next();
                 if(temp.Authenticate(pass))
                 {
-                    int uid = temp.uid;
+                    userslist uid = temp;
                     userMainActivity newactivity = new userMainActivity(uid);
-                    newactivity.showOptions();
-                    newactivity.chooseOption();
+//                    newactivity.showOptions();
+//                    newactivity.chooseOption();
                 }
-
                 break;
             }
             temp = temp.next;
         }
+        if(!userfound)
+            System.out.println("No user with this username");
         return 0;
     }
 }
