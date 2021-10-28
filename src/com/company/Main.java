@@ -8,12 +8,7 @@ public class Main {
         AuthPage a1 = new AuthPage();
         while(true)
         {
-            a1.showOptins();
-            Scanner scr = new Scanner(System.in);
-            int option = scr.nextInt();
-            if(option==0)
-                break;
-            a1.chooseOption(option);
+            a1.chooseOption();
         }
 
     }

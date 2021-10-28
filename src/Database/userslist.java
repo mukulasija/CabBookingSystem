@@ -8,7 +8,7 @@ public class userslist {
     public userslist next = null;
     public userslist uid = null;
     private String userName;
-    private String password;
+    protected String password;
     public void setUsername(String userName)
     {
         this.userName = userName;
@@ -38,5 +38,8 @@ public class userslist {
         String fromCity = sc.next();
         System.out.print("To: ");
         String toCity = sc.next();
+        System.out.println("\nAvailable cabs:\n 1. From: "+fromCity+"  To: "+toCity+"  Type: Mini  Price: 5000INR");
+        System.out.println("2. From: "+fromCity+"  To: "+toCity+"  Type: Prime  Price: 10000INR");
+        int option = sc.nextInt();
     }
 }

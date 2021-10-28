@@ -9,8 +9,10 @@ public class AuthPage {
         System.out.println("1.Login\n2.Signup");
     }
 
-    void chooseOption(int option)
-    {
+    void chooseOption()
+    {        System.out.println("1.Login\n2.Signup");
+        Scanner sc = new Scanner(System.in);
+        int option= sc.nextInt();
         if(option==1)
         {
             login();
@@ -20,6 +22,11 @@ public class AuthPage {
         {
             signUp();
         }
+        else
+            if(option==3)
+            {
+                return;
+            }
         else
         {
             System.out.println("please select a valid option...");
