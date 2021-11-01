@@ -3,8 +3,8 @@ package Database;
 import java.util.Scanner;
 
 public class userslist {
-    public static userslist head = null;
-    public static userslist tail = null;
+    public static userslist head = null;/// head= mukulasija-->next=yash
+    public static userslist tail = null;///tail= yash
     public userslist next = null;
     public userslist uid = null;
     private String userName;
@@ -32,7 +32,7 @@ public class userslist {
         return false;
     }
 
-    public void bookNewCab() {
+    public void bookNewCab(){
         Scanner sc = new Scanner(System.in);
         System.out.print("From: ");
         String fromCity = sc.next();

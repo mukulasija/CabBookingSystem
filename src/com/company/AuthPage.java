@@ -1,13 +1,15 @@
 package com.company;
-import Database.*;
 
+import Database.userslist;
+import Database.*;
 import java.util.Scanner;
 
-public class AuthPage {
+public class AuthPage extends userslist {
 
-    void showOptins() {
-        System.out.println("1.Login\n2.Signup");
-    }
+//
+//    void showOptins() {
+//        System.out.println("1.Login\n2.Signup");
+//    }
 
     void chooseOption()
     {        System.out.println("1.Login\n2.Signup");
@@ -22,11 +24,6 @@ public class AuthPage {
         {
             signUp();
         }
-        else
-            if(option==3)
-            {
-                return;
-            }
         else
         {
             System.out.println("please select a valid option...");
@@ -54,8 +51,6 @@ public class AuthPage {
        System.out.println("signed up successfully...\n\n\n\n");
        li.uid = li;
        userMainActivity newactivity = new userMainActivity(li.uid);
-//       newactivity.showOptions();
-//       newactivity.chooseOption();
         return 0;
     }
 
@@ -76,12 +71,11 @@ public class AuthPage {
                 {
                     userslist uid = temp;
                     userMainActivity newactivity = new userMainActivity(uid);
-//                    newactivity.showOptions();
-//                    newactivity.chooseOption();
                 }
                 break;
             }
             temp = temp.next;
+
         }
         if(!userfound)
             System.out.println("No user with this username");
