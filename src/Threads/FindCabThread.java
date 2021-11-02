@@ -18,7 +18,7 @@ public class FindCabThread extends Thread{
        cabList temp = cabList.head;
        while(temp!=null)
        {
-           if(temp.from.equals(this.from))
+           if(temp.from.equals(this.from) && temp.bookedByUser==null)
            {
                results.add(temp);
            }

@@ -37,7 +37,7 @@ public class userslist {
         return false;
     }
 
-    public void bookNewCab(){
+    public void bookNewCab() {
 
         Scanner sc = new Scanner(System.in);
         System.out.print("From: ");
@@ -46,15 +46,18 @@ public class userslist {
         String toCity = sc.next();
         FindCabThread fc = new FindCabThread(fromCity);
         fc.start();
-        try
-        {
+        try {
             fc.join();
-        }
-        catch (InterruptedException e)
-        {
+        } catch (InterruptedException e) {
 
         }
-       List<cabList> results = fc.results;
+        List<cabList> results = fc.results;
+        if (results.size() == 0)
+        {
+            System.out.println("\nNo Cabs From Given Location..");
+            return;
+        }
+
         System.out.println("\nAvailable cabs:\n");
         int i=1;
         for(cabList result :results)
@@ -65,5 +68,6 @@ public class userslist {
 //        System.out.println("2. From: "+fromCity+"  To: "+toCity+"  Type: Prime  Price: 10000INR");
         int option = sc.nextInt();
         uid.bookedCabs.add(results.get(option-1));
+        results.get(option-1).bookedByUser=uid;
     }
 }
