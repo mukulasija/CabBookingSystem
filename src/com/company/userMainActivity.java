@@ -21,7 +21,19 @@ public class userMainActivity {
     }
 
     private void showBookedCabs() {
-        System.out.println("\n--------------------------\nBooked cabs will show here\n--------------------------");
+        if(uid.bookedCabs.size()==0)
+        {
+            System.out.println("\n--------------------------\nBooked cabs will show here\n--------------------------");
+        }
+        else
+        {
+            System.out.println("\n--------------------------\nBooked Cabs:\n");
+            for(cabList result : uid.bookedCabs)
+            {
+                System.out.println("From:"+result.from+" Type: "+result.type);
+            }
+            System.out.println("--------------------------\n");
+        }
     }
 
     public void showOptions()

@@ -2,6 +2,7 @@ package Database;
 
 import Threads.FindCabThread;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,6 +13,7 @@ public class userslist {
     public userslist uid = null;
     private String userName;
     protected String password;
+    public List<cabList> bookedCabs = new ArrayList<cabList>();
     public void setUsername(String userName)
     {
         this.userName = userName;
@@ -44,13 +46,24 @@ public class userslist {
         String toCity = sc.next();
         FindCabThread fc = new FindCabThread(fromCity);
         fc.start();
-        List<cabList> results = fc.results;
-        System.out.println("\nAvailable cabs:\n");
-        for(cabList result:results)
+        try
         {
-            System.out.println(" 1. From: "+result.from+"  To: "+toCity+"  Type: "+result.type);
+            fc.join();
+        }
+        catch (InterruptedException e)
+        {
+
+        }
+       List<cabList> results = fc.results;
+        System.out.println("\nAvailable cabs:\n");
+        int i=1;
+        for(cabList result :results)
+        {
+            System.out.println(i+". From: "+result.from+"  To: "+toCity+"  Type: "+result.type);
+            i++;
         }
 //        System.out.println("2. From: "+fromCity+"  To: "+toCity+"  Type: Prime  Price: 10000INR");
         int option = sc.nextInt();
+        uid.bookedCabs.add(results.get(option-1));
     }
 }

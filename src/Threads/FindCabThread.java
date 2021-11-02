@@ -15,11 +15,10 @@ public class FindCabThread extends Thread{
     {
 //       userslist head = userslist.head;
 //       userslist temp = head;
-       cabList head = cabList.head;
        cabList temp = cabList.head;
        while(temp!=null)
        {
-           if(temp.from==this.from)
+           if(temp.from.equals(this.from))
            {
                results.add(temp);
            }
