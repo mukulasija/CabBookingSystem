@@ -1,8 +1,13 @@
 package com.company;
 import Database.*;
+
+import java.util.Scanner;
+
 public class cab extends cabList{
-    protected cab next;
-    public String from;
-    public String to;
-    public boolean isEngaged=false;
+    public void createNewCab()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("From City : ");
+
+    }
 }

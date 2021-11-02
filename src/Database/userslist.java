@@ -1,5 +1,8 @@
 package Database;
 
+import Threads.FindCabThread;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class userslist {
@@ -33,13 +36,21 @@ public class userslist {
     }
 
     public void bookNewCab(){
+
         Scanner sc = new Scanner(System.in);
         System.out.print("From: ");
         String fromCity = sc.next();
         System.out.print("To: ");
         String toCity = sc.next();
-        System.out.println("\nAvailable cabs:\n 1. From: "+fromCity+"  To: "+toCity+"  Type: Mini  Price: 5000INR");
-        System.out.println("2. From: "+fromCity+"  To: "+toCity+"  Type: Prime  Price: 10000INR");
+        FindCabThread fc = new FindCabThread(fromCity);
+        fc.start();
+        List<cabList> results = fc.results;
+        System.out.println("\nAvailable cabs:\n");
+        for(cabList result:results)
+        {
+            System.out.println(" 1. From: "+result.from+"  To: "+toCity+"  Type: "+result.type);
+        }
+//        System.out.println("2. From: "+fromCity+"  To: "+toCity+"  Type: Prime  Price: 10000INR");
         int option = sc.nextInt();
     }
 }
