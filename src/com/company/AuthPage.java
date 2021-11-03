@@ -2,6 +2,8 @@ package com.company;
 
 import Database.userslist;
 import Database.*;
+import Threads.CheckUserThread;
+
 import java.util.Scanner;
 
 public class AuthPage extends userslist {
@@ -35,9 +37,13 @@ public class AuthPage extends userslist {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter Username : ");
         li.setUsername(sc.next());
+        /// add fields like full name, contact number, etc ==> user will be entering these fileds and a
+        // background thread will check the usernames from the userlist class
+        /// and at the end before setting up the password he will be prompted the username alredy exists
+        CheckUserThread checkSameUsername = new CheckUserThread(li.getUsername());
+        checkSameUsername.start();
         System.out.print("Create Password: ");
         li.setPassword(sc.next());
-
        if(userslist.head==null){
            userslist.head=li;
            userslist.tail = li;

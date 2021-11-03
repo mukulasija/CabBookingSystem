@@ -49,7 +49,6 @@ public class userslist {
         try {
             fc.join();
         } catch (InterruptedException e) {
-
         }
         List<cabList> results = fc.results;
         if (results.size() == 0)
@@ -65,7 +64,6 @@ public class userslist {
             System.out.println(i+". From: "+result.from+"  To: "+toCity+"  Type: "+result.type);
             i++;
         }
-//        System.out.println("2. From: "+fromCity+"  To: "+toCity+"  Type: Prime  Price: 10000INR");
         int option = sc.nextInt();
         uid.bookedCabs.add(results.get(option-1));
         results.get(option-1).bookedByUser=uid;
