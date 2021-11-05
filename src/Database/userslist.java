@@ -43,13 +43,13 @@ public class userslist {
         System.out.print("From: ");
         String fromCity = sc.next();
         System.out.print("To: ");
-        String toCity = sc.next();
         FindCabThread fc = new FindCabThread(fromCity);
         fc.start();
-        try {
-            fc.join();
-        } catch (InterruptedException e) {
-        }
+        String toCity = sc.next();
+//        try {
+//            fc.join();
+//        } catch (InterruptedException e) {
+//        }
         List<cabList> results = fc.results;
         if (results.size() == 0)
         {
@@ -64,7 +64,10 @@ public class userslist {
             System.out.println(i+". From: "+result.from+"  To: "+toCity+"  Type: "+result.type);
             i++;
         }
+        System.out.println(i+". Go back");
         int option = sc.nextInt();
+        if(option==i)
+            return;
         uid.bookedCabs.add(results.get(option-1));
         results.get(option-1).bookedByUser=uid;
     }

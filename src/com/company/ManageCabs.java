@@ -24,4 +24,28 @@ public class ManageCabs {
             cabList.tail=newcab;
         }
     }
+
+    public void addCab(String from,String type,int pricePerKm,String driverName,int capacity)
+    {
+        Scanner sc = new Scanner(System.in);
+//        System.out.print("From: ");
+//         from = sc.next();
+//        System.out.print("Type: ");
+//         type = sc.next();
+//         System.out.println("Price Per Km: ");
+//         pricePerKm = sc.nextInt();
+//         System.out.println("Driver Name: ");
+//         driverName = sc.next();
+        cabList newcab = new cabList(from,type,pricePerKm,driverName,capacity);
+        if(cabList.head==null)
+        {
+            cabList.head=newcab;
+            cabList.tail=newcab;
+        }
+        else{
+            cabList.tail.next=newcab;
+            cabList.tail=newcab;
+        }
+    }
+
 }
