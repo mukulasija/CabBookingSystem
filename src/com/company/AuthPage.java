@@ -1,6 +1,6 @@
 package com.company;
 
-import Database.userslist;
+import Database.user;
 import Threads.CheckUserThread;
 
 import java.util.Scanner;
@@ -45,14 +45,14 @@ public class AuthPage {
         }
         String SignUpPassword = createPassword();
         //userslist newUser = new userslist(SignUpUsername,SignUpPassword,SignUpFname,SignUpLname,SignUpPhone);
-        userslist newUser = createUser(SignUpUsername,SignUpPassword,SignUpFname,SignUpLname,SignUpPhone);
+        user newUser = createUser(SignUpUsername,SignUpPassword,SignUpFname,SignUpLname,SignUpPhone);
         System.out.println("signed up successfully...\n\n\n\n");
         new userMainActivity(newUser);
 
     }
 
-    private userslist createUser(String signUpUsername, String signUpPassword, String signUpFname, String signUpLname, String signUpPhone) {
-        return new userslist(signUpUsername,signUpPassword,signUpFname,signUpLname,signUpPhone);
+    private user createUser(String signUpUsername, String signUpPassword, String signUpFname, String signUpLname, String signUpPhone) {
+        return new user(signUpUsername,signUpPassword,signUpFname,signUpLname,signUpPhone);
     }
 
     private String createPassword() {
@@ -101,7 +101,7 @@ public class AuthPage {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter Username: ");
         String username = sc.next();
-        userslist temp = userslist.head;
+        user temp = user.head;
         boolean userfound = false;
         while(temp!=null)
         {
@@ -112,7 +112,7 @@ public class AuthPage {
                 String pass = sc.next();
                 if(temp.Authenticate(pass))
                 {
-                    userslist uid = temp;
+                    user uid = temp;
                     userMainActivity newactivity = new userMainActivity(uid);
                 }
                 break;

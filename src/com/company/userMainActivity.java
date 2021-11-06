@@ -1,13 +1,13 @@
 package com.company;
 
-import Database.userslist;
+import Database.user;
 import Database.*;
 
 import java.util.Scanner;
 
 public class userMainActivity {
-    userslist uid = null;
-    userMainActivity(userslist uid)
+    user uid = null;
+    userMainActivity(user uid)
     {
         this.uid = uid;
         onCreate();
@@ -28,7 +28,7 @@ public class userMainActivity {
         else
         {
             System.out.println("\n--------------------------\nBooked Cabs:\n");
-            for(cabList result : uid.bookedCabs)
+            for(cab result : uid.bookedCabs)
             {
                 System.out.println("From:"+result.from+" Type: "+result.type+" Price: "+result.pricePerKm+"(per km)");
             }

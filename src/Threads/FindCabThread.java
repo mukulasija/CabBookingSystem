@@ -3,22 +3,24 @@ import Database.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.*;
+
 public class FindCabThread extends Thread{
     String from;
-    public List<cabList> results = new ArrayList<cabList>();
-    public FindCabThread(String from)
+    int passengerCount;
+    public List<cab> results = new ArrayList<cab>();
+    public FindCabThread(String from,int passengerCount)
     {this.from=from;
+        this.passengerCount=passengerCount;
     }
 
     public void run()
     {
 //       userslist head = userslist.head;
 //       userslist temp = head;
-       cabList temp = cabList.head;
+       cab temp = cab.head;
        while(temp!=null)
        {
-           if(temp.from.equals(this.from) && temp.bookedByUser==null)
+           if(temp.from.equals(this.from) && temp.bookedByUser==null && temp.capacity>=passengerCount)
            {
                results.add(temp);
            }

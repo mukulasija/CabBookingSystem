@@ -6,17 +6,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class userslist {
-    public static userslist head = null;/// head= mukulasija-->next=yash
-    public static userslist tail = null;///tail= yash
-    public userslist next = null;
-    public userslist uid = null;
+public class user {
+    public static user head = null;/// head= mukulasija-->next=yash
+    public static user tail = null;///tail= yash
+    public user next = null;
+    public user uid = null;
     private String Fname;
     private String Lname;
     private String Phone;
     private String userName;
     protected String password;
-    public List<cabList> bookedCabs = new ArrayList<cabList>();
+    public List<cab> bookedCabs = new ArrayList<cab>();
     public void setUsername(String userName)
     {
         this.userName = userName;
@@ -39,7 +39,7 @@ public class userslist {
         System.out.println("Wrong Password...\n");
         return false;
     }
-    public userslist(String signUpUsername, String signUpPassword, String signUpFname, String signUpLname, String signUpPhone)
+    public user(String signUpUsername, String signUpPassword, String signUpFname, String signUpLname, String signUpPhone)
     {
         this.userName=signUpUsername;
         this.password=signUpPassword;
@@ -47,22 +47,24 @@ public class userslist {
         this.Lname=signUpLname;
         this.Phone=signUpPhone;
         this.uid=this;
-        if(userslist.head==null){
-            userslist.head=uid;
-            userslist.tail = uid;
+        if(user.head==null){
+            user.head=uid;
+            user.tail = uid;
         }
         else
         {
-            userslist.tail.next=uid;
-            userslist.tail = uid;
+            user.tail.next=uid;
+            user.tail = uid;
         }
     }
     public void bookNewCab() {
 
         Scanner sc = new Scanner(System.in);
+        System.out.print("How many people: ");
+        int passengerCount = sc.nextInt();
         System.out.print("From: ");
         String fromCity = sc.next();
-        FindCabThread fc = new FindCabThread(fromCity);
+        FindCabThread fc = new FindCabThread(fromCity,passengerCount);
         fc.start();
         System.out.print("To: ");
         String toCity = sc.next();
@@ -70,7 +72,7 @@ public class userslist {
 //            fc.join();
 //        } catch (InterruptedException e) {
 //        }
-        List<cabList> results = fc.results;
+        List<cab> results = fc.results;
         if (results.size() == 0)
         {
             System.out.println("\nNo Cabs From Given Location..");
@@ -79,9 +81,9 @@ public class userslist {
 
         System.out.println("\nAvailable cabs:\n");
         int i=1;
-        for(cabList result :results)
+        for(cab result :results)
         {
-            System.out.println(i+". From: "+result.from+"  To: "+toCity+"  Type: "+result.type+"  Price: "+result.pricePerKm+"(per km)");
+            System.out.println(i+". From: "+result.from+"  To: "+toCity+"  Type: "+result.type+"  Price: "+result.pricePerKm+"(per km)  Capacity: "+result.capacity);
             i++;
         }
         System.out.println(i+". Go back");
