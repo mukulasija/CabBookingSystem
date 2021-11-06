@@ -11,6 +11,9 @@ public class userslist {
     public static userslist tail = null;///tail= yash
     public userslist next = null;
     public userslist uid = null;
+    private String Fname;
+    private String Lname;
+    private String Phone;
     private String userName;
     protected String password;
     public List<cabList> bookedCabs = new ArrayList<cabList>();
@@ -36,7 +39,15 @@ public class userslist {
         System.out.println("Wrong Password...\n");
         return false;
     }
-
+    public userslist(String signUpUsername, String signUpPassword, String signUpFname, String signUpLname, String signUpPhone)
+    {
+        this.userName=signUpUsername;
+        this.password=signUpPassword;
+        this.Fname=signUpFname;
+        this.Lname=signUpLname;
+        this.Phone=signUpPhone;
+        this.uid=this;
+    }
     public void bookNewCab() {
 
         Scanner sc = new Scanner(System.in);

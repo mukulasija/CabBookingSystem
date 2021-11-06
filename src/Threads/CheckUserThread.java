@@ -4,7 +4,7 @@ import Database.userslist;
 
 public class CheckUserThread extends Thread{
     String username;
-    boolean result=true;
+    public boolean result=false;
     public CheckUserThread(String username)
     {
         this.username = username;
@@ -17,7 +17,7 @@ public class CheckUserThread extends Thread{
         {
             if(temp.getUsername().equals(this.username))
             {
-                result=false;
+                result=true;
                 return;
         }
             temp = temp.next;

@@ -8,4 +8,3 @@
     4.admin panel 
     5.define capacity with type
     6.multi-threading at the time of user registration
-    7.
