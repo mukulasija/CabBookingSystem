@@ -1,9 +1,9 @@
-package com.company;
+package Database;
 
 import Database.CabList;
 
 public class AllCabsDataFile {
-    AllCabsDataFile()
+    public AllCabsDataFile()
     {
         CabList.addNewCab("Delhi","mini",1,"Mukesh",4);
         CabList.addNewCab("Delhi","Prime",20,"Suresh",4);

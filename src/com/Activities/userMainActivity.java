@@ -1,10 +1,8 @@
-package com.company;
+package com.Activities;
 
 import Database.user;
 import Database.*;
-
 import java.util.Scanner;
-
 public class userMainActivity {
     user uid = null;
     userMainActivity(user uid)

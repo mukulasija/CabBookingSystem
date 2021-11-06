@@ -1,8 +1,8 @@
-package com.company;
+package com.Activities;
 
+import Database.UserList;
 import Database.user;
 import Threads.CheckUserThread;
-
 import java.util.Scanner;
 
 public class AuthPage {
@@ -52,7 +52,8 @@ public class AuthPage {
     }
 
     private user createUser(String signUpUsername, String signUpPassword, String signUpFname, String signUpLname, String signUpPhone) {
-        return new user(signUpUsername,signUpPassword,signUpFname,signUpLname,signUpPhone);
+        return UserList.addNewUser(signUpUsername,signUpPassword,signUpFname,signUpLname,signUpPhone);
+//        return new user(signUpUsername,signUpPassword,signUpFname,signUpLname,signUpPhone);
     }
 
     private String createPassword() {
@@ -101,7 +102,7 @@ public class AuthPage {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter Username: ");
         String username = sc.next();
-        user temp = user.head;
+        user temp = UserList.head;
         boolean userfound = false;
         while(temp!=null)
         {

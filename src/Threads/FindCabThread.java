@@ -17,7 +17,7 @@ public class FindCabThread extends Thread{
     {
 //       userslist head = userslist.head;
 //       userslist temp = head;
-       cab temp = cab.head;
+       cab temp = CabList.head;
        while(temp!=null)
        {
            if(temp.from.equals(this.from) && temp.bookedByUser==null && temp.capacity>=passengerCount)

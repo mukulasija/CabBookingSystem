@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class user {
-    public static user head = null;/// head= mukulasija-->next=yash
-    public static user tail = null;///tail= yash
+//    public static user head = null;/// head= mukulasija-->next=yash
+//    public static user tail = null;///tail= yash
     public user next = null;
     public user uid = null;
     private String Fname;
@@ -47,15 +47,6 @@ public class user {
         this.Lname=signUpLname;
         this.Phone=signUpPhone;
         this.uid=this;
-        if(user.head==null){
-            user.head=uid;
-            user.tail = uid;
-        }
-        else
-        {
-            user.tail.next=uid;
-            user.tail = uid;
-        }
     }
     public void bookNewCab() {
 

@@ -1,5 +1,6 @@
 package Threads;
 
+import Database.UserList;
 import Database.user;
 
 public class CheckUserThread extends Thread{
@@ -12,7 +13,7 @@ public class CheckUserThread extends Thread{
 
     public void run()
     {
-        user temp = user.head;
+        user temp = UserList.head;
         while(temp!=null)
         {
             if(temp.getUsername().equals(this.username))

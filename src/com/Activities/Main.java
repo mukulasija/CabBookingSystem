@@ -1,10 +1,11 @@
-package com.company;
+package com.Activities;
+
+import Database.AllCabsDataFile;
 
 import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
 //        System.out.println("Add Cabs");
 //        int a=1;
           new AllCabsDataFile();
