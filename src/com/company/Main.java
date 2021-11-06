@@ -9,7 +9,7 @@ public class Main {
         ManageCabs admin = new ManageCabs();
 //        System.out.println("Add Cabs");
 //        int a=1;
-        AllCabsDataFile generateFile = new AllCabsDataFile();
+          new AllCabsDataFile();
 //        while(a==1)
 //        {
 //            admin.addCab();
@@ -21,9 +21,5 @@ public class Main {
         {
             a1.chooseOption();
         }
-
-    }
-
-    private static void onCreate() {
     }
 }

@@ -30,7 +30,7 @@ public class userMainActivity {
             System.out.println("\n--------------------------\nBooked Cabs:\n");
             for(cabList result : uid.bookedCabs)
             {
-                System.out.println("From:"+result.from+" Type: "+result.type);
+                System.out.println("From:"+result.from+" Type: "+result.type+" Price: "+result.pricePerKm+"(per km)");
             }
             System.out.println("--------------------------\n");
         }

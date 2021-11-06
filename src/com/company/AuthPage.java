@@ -1,17 +1,11 @@
 package com.company;
 
 import Database.userslist;
-import Database.*;
 import Threads.CheckUserThread;
 
 import java.util.Scanner;
 
 public class AuthPage {
-
-//
-//    void showOptins() {
-//        System.out.println("1.Login\n2.Signup");
-//    }
 
     void chooseOption()
     {        System.out.println("1.Login\n2.Signup");
@@ -50,24 +44,15 @@ public class AuthPage {
             SignUpUsername = sc.next();
         }
         String SignUpPassword = createPassword();
+        //userslist newUser = new userslist(SignUpUsername,SignUpPassword,SignUpFname,SignUpLname,SignUpPhone);
         userslist newUser = createUser(SignUpUsername,SignUpPassword,SignUpFname,SignUpLname,SignUpPhone);
         System.out.println("signed up successfully...\n\n\n\n");
-        userMainActivity newactivity = new userMainActivity(newUser);
+        new userMainActivity(newUser);
 
     }
 
     private userslist createUser(String signUpUsername, String signUpPassword, String signUpFname, String signUpLname, String signUpPhone) {
-    userslist newUser = new userslist(signUpUsername,signUpPassword,signUpFname,signUpLname,signUpPhone);
-        if(userslist.head==null){
-            userslist.head=newUser;
-            userslist.tail = newUser;
-        }
-        else
-        {
-            userslist.tail.next=newUser;
-            userslist.tail = newUser;
-        }
-        return newUser;
+        return new userslist(signUpUsername,signUpPassword,signUpFname,signUpLname,signUpPhone);
     }
 
     private String createPassword() {
@@ -112,7 +97,7 @@ public class AuthPage {
 //        return 0;
 //    }
 
-    private int login() {
+    private void login() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter Username: ");
         String username = sc.next();
@@ -137,6 +122,5 @@ public class AuthPage {
         }
         if(!userfound)
             System.out.println("No user with this username");
-        return 0;
     }
 }

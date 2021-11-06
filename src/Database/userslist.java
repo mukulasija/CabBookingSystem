@@ -47,15 +47,24 @@ public class userslist {
         this.Lname=signUpLname;
         this.Phone=signUpPhone;
         this.uid=this;
+        if(userslist.head==null){
+            userslist.head=uid;
+            userslist.tail = uid;
+        }
+        else
+        {
+            userslist.tail.next=uid;
+            userslist.tail = uid;
+        }
     }
     public void bookNewCab() {
 
         Scanner sc = new Scanner(System.in);
         System.out.print("From: ");
         String fromCity = sc.next();
-        System.out.print("To: ");
         FindCabThread fc = new FindCabThread(fromCity);
         fc.start();
+        System.out.print("To: ");
         String toCity = sc.next();
 //        try {
 //            fc.join();
@@ -72,7 +81,7 @@ public class userslist {
         int i=1;
         for(cabList result :results)
         {
-            System.out.println(i+". From: "+result.from+"  To: "+toCity+"  Type: "+result.type);
+            System.out.println(i+". From: "+result.from+"  To: "+toCity+"  Type: "+result.type+"  Price: "+result.pricePerKm+"(per km)");
             i++;
         }
         System.out.println(i+". Go back");
