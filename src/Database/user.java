@@ -1,5 +1,6 @@
 package Database;
 
+import Hacks.hack;
 import Threads.FindCabThread;
 
 import java.util.ArrayList;
@@ -39,11 +40,15 @@ public class user {
         System.out.println("Wrong Password...\n");
         return false;
     }
+    public String getPassword()
+    {
+        return  password;
+    }
     public user(String signUpUsername, String signUpPassword, String signUpFname, String signUpLname, String signUpPhone)
     {
         this.userName=signUpUsername;
         this.password=signUpPassword;
-        this.Fname=signUpFname;
+        this.Fname=signUpFname; //TO-DO = hack.format string on every string in the programe
         this.Lname=signUpLname;
         this.Phone=signUpPhone;
         this.uid=this;
