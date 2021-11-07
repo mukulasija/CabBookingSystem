@@ -40,12 +40,13 @@ public class userMainActivity {
     }
     public void chooseOption()
     {
-        System.out.println("1.Book a Cab\n2.Logout");
+        System.out.println("1.Book a Cab\n2.Logout\n3.Your Data\n4.Cancel Cab");
         Scanner sc = new Scanner(System.in);
         int option = sc.nextInt();
         if(option==1)
         {
-            uid.bookNewCab();
+            new BookCabFragment(uid);
+//            uid.bookNewCab();
             onCreate();
         }
         else
@@ -53,6 +54,20 @@ public class userMainActivity {
         {
             logout();
         }
+        else
+        if(option==3)
+        {
+            new UserDataManageFragment(uid);
+            //TODO user can change his/her credentials
+            onCreate();
+        }
+        else
+            if(option==4)
+            {
+                CancelCab(uid);
+                //TODO user can cancel the cab
+                onCreate();
+            }
         else
         {
             System.out.println("Please select a valid option...");
@@ -66,6 +81,24 @@ public class userMainActivity {
             onCreate();
         }
     }
+
+    private void CancelCab(user uid) {
+        System.out.println("\n--------------------------\nBooked Cabs:\n");
+        int i=1;
+        for(cab result : uid.bookedCabs)
+        {
+            System.out.println(i+".From:"+result.from+" Type: "+result.type+" Price: "+result.pricePerKm+"(per km)");
+            i++;
+        }
+        System.out.println(i+".Go back");
+        System.out.println("--------------------------\n");
+        Scanner sc = new Scanner(System.in);
+        int option = sc.nextInt();
+        if(option==i)
+            return;
+        uid.unBookCab(option-1);
+    }
+
     private void logout()
     {
         System.out.print("logging out");

@@ -26,8 +26,7 @@ public class AuthPage {
     private void newsignup() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Set Username: ");
-        String SignUpUsername =
-                (sc.next());
+        String SignUpUsername = (sc.next());
         CheckUserThread checkSameUsername = new CheckUserThread(SignUpUsername);
         checkSameUsername.start();
         System.out.print("First Name: ");

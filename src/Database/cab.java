@@ -10,7 +10,14 @@ public class cab {
     public String type;
     public int capacity;
     public user bookedByUser = null;
-
+    public int bookedForDays=0;
+    public int bookingPrice=0;
+    public void book(user uid,int days,int price)
+    {
+        this.bookedByUser=uid;
+        this.bookedForDays=days;
+        this.bookingPrice=price;
+    }
 //    public cab(String from, String type)
 //    {
 //        this.from = from;
