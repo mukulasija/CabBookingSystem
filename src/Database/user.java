@@ -26,7 +26,70 @@ public class user {
 //    {
 //        this.password = password;
 //    }
-
+    public void ChangeFnameWithPass()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter new First Name: ");
+        String newFname = sc.next();
+        System.out.print("Enter Your password: ");
+        String checkPass = sc.next();
+        if (uid.Authenticate(checkPass))
+        {
+         Fname = newFname;
+        }
+        else
+        {
+            System.out.println("Wrong Password...");
+        }
+    }
+    public void ChangeLnameWithPass()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter new Last Name: ");
+        String newLname = sc.next();
+        System.out.print("Enter Your password: ");
+        String checkPass = sc.next();
+        if (uid.Authenticate(checkPass))
+        {
+            Lname = newLname;
+        }
+        else
+        {
+            System.out.println("Wrong Password...");
+        }
+    }
+    public void ChangePhoneWithPass()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter new Phone Number: ");
+        String newPhone = sc.next();
+        System.out.print("Enter Your password: ");
+        String checkPass = sc.next();
+        if (uid.Authenticate(checkPass))
+        {
+            Phone = newPhone;
+        }
+        else
+        {
+            System.out.println("Wrong Password...");
+        }
+    }
+    public void ChangeUsernameWithPass()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter new Username: ");
+        String newUsername = sc.next();
+        System.out.print("Enter Your password: ");
+        String checkPass = sc.next();
+        if (uid.Authenticate(checkPass))
+        {
+            userName = newUsername;
+        }
+        else
+        {
+            System.out.println("Wrong Password...");
+        }
+    }
     public String getUsername() {
         return this.userName;
     }
@@ -34,10 +97,10 @@ public class user {
     public boolean Authenticate(String pass) {
         if(pass.equals(password))
         {
-            System.out.println("login Successful..");
+
             return true;
         }
-        System.out.println("Wrong Password...\n");
+
         return false;
     }
     public String getFname(){return Fname;}

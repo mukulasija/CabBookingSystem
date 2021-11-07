@@ -43,16 +43,19 @@ public class UserDataManageFragment {
     }
 
     private void ChangePhone() {
-
+       uid.ChangePhoneWithPass();
     }
 
     private void ChangeLname() {
+        uid.ChangeLnameWithPass();
     }
 
     private void ChangeFname() {
+        uid.ChangeFnameWithPass();
     }
 
     private void ChangeUsername() {
+        uid.ChangeUsernameWithPass();
     }
 
 }

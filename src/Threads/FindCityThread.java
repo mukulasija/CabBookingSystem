@@ -22,7 +22,7 @@ public class FindCityThread extends Thread{
                return;
            }
        }
-       cities.addCity(city);
+       cities.citiesList.add(city);
        index=list.size();
        return;
     }

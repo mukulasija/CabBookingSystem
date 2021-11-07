@@ -28,7 +28,8 @@ public class userMainActivity {
             System.out.println("\n--------------------------\nBooked Cabs:\n");
             for(cab result : uid.bookedCabs)
             {
-                System.out.println("From:"+result.from+" Type: "+result.type+" Price: "+result.pricePerKm+"(per km)");
+                System.out.println("From:"+result.from+"  Type: "+result.type+"  Price: "+result.bookingPrice+"   Days: "+result.bookedForDays);
+
             }
             System.out.println("--------------------------\n");
         }
@@ -58,14 +59,13 @@ public class userMainActivity {
         if(option==3)
         {
             new UserDataManageFragment(uid);
-            //TODO user can change his/her credentials
+
             onCreate();
         }
         else
             if(option==4)
             {
                 CancelCab(uid);
-                //TODO user can cancel the cab
                 onCreate();
             }
         else

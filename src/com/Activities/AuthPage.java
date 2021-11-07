@@ -107,10 +107,12 @@ public class AuthPage {
             user uid = loginThread.getUid();
             if(uid.Authenticate(pass))
             {
+                System.out.println("login Successful...");
                 new userMainActivity(uid);
             }
             else
             {
+                System.out.println("Wrong Password...");
                 return;
             }
         }
