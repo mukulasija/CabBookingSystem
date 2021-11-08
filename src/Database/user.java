@@ -130,7 +130,7 @@ public class user {
 
         Scanner sc = new Scanner(System.in);
         System.out.print("How many people: ");
-        int passengerCount = sc.nextInt();
+        int passengerCount = hack.TakeArithemeticInput();
         System.out.print("From: ");
         String fromCity = hack.FormatString(sc.next());
         FindCabThread fc = new FindCabThread(fromCity,passengerCount);
@@ -156,7 +156,7 @@ public class user {
             i++;
         }
         System.out.println(i+". Go back");
-        int option = sc.nextInt();
+        int option = hack.TakeArithemeticInput();
         if(option==i)
             return;
         uid.bookedCabs.add(results.get(option-1));

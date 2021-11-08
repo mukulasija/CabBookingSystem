@@ -2,8 +2,10 @@ package com.Activities;
 
 import Database.user;
 import Database.*;
+import Hacks.hack;
+
 import java.util.Scanner;
-public class userMainActivity {
+public class userMainActivity  {
     user uid = null;
     userMainActivity(user uid)
     {
@@ -43,7 +45,7 @@ public class userMainActivity {
     {
         System.out.println("1.Book a Cab\n2.Logout\n3.Your Data\n4.Cancel Cab");
         Scanner sc = new Scanner(System.in);
-        int option = sc.nextInt();
+        int option = hack.TakeArithemeticInput();
         if(option==1)
         {
             new BookCabFragment(uid);
@@ -93,7 +95,7 @@ public class userMainActivity {
         System.out.println(i+".Go back");
         System.out.println("--------------------------\n");
         Scanner sc = new Scanner(System.in);
-        int option = sc.nextInt();
+        int option = hack.TakeArithemeticInput();
         if(option==i)
             return;
         uid.unBookCab(option-1);

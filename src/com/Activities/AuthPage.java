@@ -13,7 +13,7 @@ public class AuthPage {
     void chooseOption() {
         System.out.println("1.Login\n2.Signup");
         Scanner sc = new Scanner(System.in);
-        int option = sc.nextInt();
+        int option = hack.TakeArithemeticInput();
         if (option == 1) {
             login();
         } else if (option == 2) {

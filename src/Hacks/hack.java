@@ -1,5 +1,8 @@
 package Hacks;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class hack{
     public static String FormatString(String string)
     {
@@ -14,4 +17,19 @@ public class hack{
         return string;
     }
 
+    public static int TakeArithemeticInput()
+    {
+        Scanner sc = new Scanner(System.in);
+        int answer;
+        try {
+            answer = sc.nextInt();
+        }
+        catch (InputMismatchException e)
+        {
+            System.out.println("Input type Mismatch...");
+            System.out.print("Please Enter Again: ");
+            answer = TakeArithemeticInput();
+        }
+        return answer;
+    }
 }

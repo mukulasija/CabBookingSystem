@@ -2,6 +2,7 @@ package com.Activities;
 
 import Database.UserList;
 import Database.user;
+import Hacks.hack;
 
 import java.util.Scanner;
 
@@ -17,7 +18,7 @@ public class UserDataManageFragment {
         System.out.println("username:"+uid.getUsername()+" First Name: "+uid.getFname()+" Last Name: "+uid.getLname()+" Phone No: "+uid.getPhone());
         System.out.println("\n1.Change Username\n2.Change First Name\n3.Change Last Name\n4.Change Phone No\n5.Go back");
         Scanner sc = new Scanner(System.in);
-        int option= sc.nextInt();
+        int option= hack.TakeArithemeticInput();
         switch (option)
         {
             case 1:
