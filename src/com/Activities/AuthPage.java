@@ -11,17 +11,25 @@ import java.util.Scanner;
 public class AuthPage {
 
     void chooseOption() {
-        System.out.println("1.Login\n2.Signup");
+        System.out.println("1.Login\n2.Signup\n3.Admin Login");
         Scanner sc = new Scanner(System.in);
         int option = hack.TakeArithemeticInput();
         if (option == 1) {
             login();
         } else if (option == 2) {
             newsignup();
-        } else {
-            System.out.println("please select a valid option...");
+        } else if(option==3) {
+            AdminLogin();
         }
+        else {
+                System.out.println("please select a valid option...");
+            }
+        }
+
+    private void AdminLogin() {
+
     }
+
 
     private void newsignup() {
         Scanner sc = new Scanner(System.in);

@@ -5,7 +5,7 @@ import Database.cities;
 import java.util.List;
 
 public class FindCityThread extends Thread{
-    private String city;
+    private final String city;
     public int index;
    public FindCityThread(String city)
     {
@@ -16,7 +16,7 @@ public class FindCityThread extends Thread{
         List<String> list = cities.citiesList;
        for(int i=0;i<list.size();i++)
        {
-           if(list.get(i)==city)
+           if(list.get(i).equals(city))
            {
                index=i;
                return;
@@ -24,6 +24,5 @@ public class FindCityThread extends Thread{
        }
        cities.citiesList.add(city);
        index=list.size();
-       return;
     }
 }

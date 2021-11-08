@@ -18,6 +18,12 @@ public class cab {
         this.bookedForDays=days;
         this.bookingPrice=price;
     }
+    public void unbook()
+    {
+        this.bookedForDays=0;
+        this.bookingPrice=0;
+        this.bookedByUser=null;
+    }
 //    public cab(String from, String type)
 //    {
 //        this.from = from;

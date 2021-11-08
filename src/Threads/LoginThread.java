@@ -5,16 +5,16 @@ import Database.user;
 
 public class LoginThread extends Thread{
     private final String username;
-    private String pass =null;
+//    private String pass =null;
     private user uid = null;
     public user getUid()
     {
         return  uid;
     }
-    public String getPass()
-    {
-        return pass;
-    }
+//    public String getPass()
+//    {
+//        return pass;
+//    }
 
     public LoginThread(String username)
     {
@@ -27,7 +27,7 @@ public class LoginThread extends Thread{
         {
             if(temp.getUsername().equals(this.username))
             {
-                pass=temp.getPassword();
+//                pass=temp.getPassword();
                 uid = temp;
                 return;
             }
