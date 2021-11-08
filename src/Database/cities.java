@@ -8,6 +8,10 @@ import java.util.List;
 
 public class cities {
     public static List<String> citiesList = new ArrayList<String>();
+    synchronized public static void syncCity(String name)
+    {
+        citiesList.add(name);
+    }
     public static void addCity(String name)
     {
 

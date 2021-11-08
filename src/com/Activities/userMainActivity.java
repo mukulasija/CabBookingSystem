@@ -44,6 +44,8 @@ public class userMainActivity  {
     public void chooseOption()
     {
         System.out.println("1.Book a Cab\n2.Logout\n3.Your Data\n4.Cancel Cab");
+        System.out.print("Choose An Option To Continue:");
+
         Scanner sc = new Scanner(System.in);
         int option = hack.TakeArithemeticInput();
         if(option==1)

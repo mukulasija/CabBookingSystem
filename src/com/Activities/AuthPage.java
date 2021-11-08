@@ -11,15 +11,14 @@ import java.util.Scanner;
 public class AuthPage {
 
     void chooseOption() {
-        System.out.println("1.Login\n2.Signup\n3.Admin Login");
+        System.out.println("Choose An Option To Continue");
+        System.out.println("1.Login\n2.Signup");
         Scanner sc = new Scanner(System.in);
         int option = hack.TakeArithemeticInput();
         if (option == 1) {
             login();
         } else if (option == 2) {
             newsignup();
-        } else if(option==3) {
-            AdminLogin();
         }
         else {
                 System.out.println("please select a valid option...");
@@ -32,16 +31,20 @@ public class AuthPage {
 
 
     private void newsignup() {
+        hack.bigLine();
+        hack.giveSpaces(3);
+        System.out.println("Sign Up Page");
+        hack.bigLine();
         Scanner sc = new Scanner(System.in);
-        System.out.print("Set Username: ");
+        System.out.print("Enter Username: ");
         String SignUpUsername = (sc.next());
         CheckUserThread checkSameUsername = new CheckUserThread(SignUpUsername);
         checkSameUsername.start();
-        System.out.print("First Name: ");
+        System.out.print("Enter First Name: ");
         String SignUpFname = sc.next();
-        System.out.print("Last Name: ");
+        System.out.print("Enter Last Name: ");
         String SignUpLname = sc.next();
-        System.out.print("Phone No: ");
+        System.out.print("Enter Phone No: ");
         String SignUpPhone = sc.next();
         if (checkSameUsername.result) {
             System.out.print("\nUsername " + SignUpUsername + " already exists....\nPlease Enter another username: ");
@@ -50,8 +53,13 @@ public class AuthPage {
         String SignUpPassword = createPassword();
         //userslist newUser = new userslist(SignUpUsername,SignUpPassword,SignUpFname,SignUpLname,SignUpPhone);
         user newUser = createUser(SignUpUsername, SignUpPassword, SignUpFname, SignUpLname, SignUpPhone);
-        System.out.println("signed up successfully...\n\n\n\n");
+
+        System.out.println("\nsigned up successfully");
+        System.out.print("Redirecting You to HomePage");
+        hack.showDots(3,700);
+        System.out.println("\n\n");
         new userMainActivity(newUser);
+
 
     }
 
@@ -115,47 +123,24 @@ public class AuthPage {
             user uid = loginThread.getUid();
             if(uid.Authenticate(pass))
             {
-                System.out.println("login Successful...");
+                System.out.println("logged in Successfully...");
+                System.out.print("Redirecting You to HomePage");
+                hack.showDots(3,700);
+                System.out.println("\n\n");
                 new userMainActivity(uid);
             }
             else
             {
-                System.out.println("Wrong Password...");
+                System.out.println("Incorrect Credentials..");
+                System.out.print("Redirecting You to Login Page");
+                hack.showDots(3,700);
                 return;
             }
         }
         else {
-            System.out.println("Wrong username...");
+            System.out.println("Incorrect Credentials..");
+            System.out.print("Redirecting You to Login Page");
+            hack.showDots(3,700);
         }
-//        if (pass.equals(loginThread.getPass())) {
-//            new userMainActivity(loginThread.getUid());
-//        }
-//        else
-//        {
-//            System.out.println("Wrong username or password..");
-//        }
-//        user temp = UserList.head;
-//        boolean userfound = false;
-//        while(temp!=null)
-//        {
-//            if(temp.getUsername().equals(username))
-//            {
-//                userfound = true;
-//                System.out.print("Enter Password: ");
-//                String pass = sc.next();
-//                if(temp.Authenticate(pass))
-//                {
-//                    new userMainActivity(temp);
-////                    user uid = temp;
-////                    userMainActivity newactivity = new userMainActivity(uid);
-//                }
-//                break;
-//            }
-//            temp = temp.next;
-//
-//        }
-//        if(!userfound)
-//            System.out.println("No user with this username");
-//    }
     }
 }

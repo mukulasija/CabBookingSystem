@@ -22,7 +22,8 @@ public class FindCityThread extends Thread{
                return;
            }
        }
-       cities.citiesList.add(city);
+       cities.syncCity(city);
+//       cities.citiesList.add(city);
        index=list.size();
     }
 }

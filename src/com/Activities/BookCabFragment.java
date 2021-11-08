@@ -20,19 +20,22 @@ public class BookCabFragment {
 
     private void onCreate() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("How many people: ");
+        hack.bigLine(30);
+        System.out.println("\nEnter Your Requirements");
+        hack.bigLine(30);
+        System.out.print("\n\nEnter No. Of Passengers: ");
         int passengerCount = hack.TakeArithemeticInput();
-        System.out.print("From: ");
+        System.out.print("Enter Initial Destination: ");
         String fromCity = hack.FormatString(sc.next());
         FindCityThread fromThread = new FindCityThread(fromCity);
         fromThread.start();
         FindCabThread fc = new FindCabThread(fromCity,passengerCount);
         fc.start();
-        System.out.print("To: ");
+        System.out.print("Enter Final Destination: ");
         String toCity = hack.FormatString(sc.next());
         FindCityThread toThread = new FindCityThread(toCity);
         toThread.start();
-        System.out.print("How many Days: ");
+        System.out.print("Duration Of Trip(in Days): ");
         int days = hack.TakeArithemeticInput();
         int frindex = fromThread.index;
         int toindex = toThread.index;
@@ -43,14 +46,16 @@ public class BookCabFragment {
             System.out.println("\nNo Cabs From Given Location..");
             return;
         }
-
-        System.out.println("\nAvailable cabs:\n");
+        hack.bigLine();
+        hack.giveSpaces(3);
+        System.out.print("\nAvailable cabs:\n");
+        hack.bigLine();
         int i=1;
         int price;
         for(cab result :results)
         {
              price = result.pricePerKm*(dist%10)*(days*100);
-            System.out.println(i+". From: "+result.from+"  To: "+toCity+"  Type: "+result.type+"  Price: "+price+"  Capacity: "+result.capacity);
+            System.out.println(i+". From: "+result.from+" || To: "+toCity+" || Type: "+result.type+" || Price: "+price+" || Capacity: "+result.capacity);
             i++;
         }
         System.out.println(i+". Go back");

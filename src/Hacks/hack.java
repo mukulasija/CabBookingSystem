@@ -4,6 +4,31 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class hack{
+    public static void giveSpaces(int spaces)
+    {
+        for(int i=0;i<spaces;i++)
+            System.out.print(" ");
+    }
+    public static void bigUpLine(int n)
+    {
+        System.out.println("");
+        for(int i=0;i<n;i++)
+            System.out.print("-");
+        System.out.println("");
+    }
+    public static void bigLine(int n)
+    {
+        for(int i=0;i<n;i++)
+        System.out.print("-");
+    }
+    public static void showDots(int n,int millisec)
+    {
+        for(int i=0;i<n;i++)
+        {
+            try{System.out.print(".");Thread.sleep(millisec);}catch (InterruptedException e){
+            }
+        }
+    }
     public static String FormatString(String string)
     {
         String firstLetStr = string.substring(0, 1);
@@ -17,6 +42,12 @@ public class hack{
         return string;
     }
 
+    public static void bigLine()
+    {
+        for(int i=0;i<20;i++)
+            System.out.print("-");
+        System.out.println("");
+    }
     public static int TakeArithemeticInput()
     {
         Scanner sc = new Scanner(System.in);
