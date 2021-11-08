@@ -2,13 +2,9 @@ package Database;
 
 import Hacks.hack;
 
-public class CabList extends cab {
+public class CabList{
     public static cab head =null;
     public static cab tail =null;
-
-    public CabList(String from, String type, int pricePerKm, String driverName, int capacity) {
-        super(from, type, pricePerKm, driverName, capacity);
-    }
 
     public static void addNewCab(String from,String type,int pricePerKm,String driverName,int capacity)
     {
