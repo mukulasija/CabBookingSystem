@@ -1,70 +1,88 @@
-package com.Activities;
+package Database;
 
-import Database.cab;
-import Database.user;
-import Hacks.hack;
+import Hacks.Hack;
 import Threads.FindCabThread;
 import Threads.FindCityThread;
 
-import java.util.InputMismatchException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class BookCabFragment {
-    user uid ;
-    BookCabFragment(user uid)
+public class User extends Human{
+    public User next = null;
+    private User uid = null;
+    private final String password;
+    public List<Cab> bookedCabs = new ArrayList<Cab>();
+    public User(String signUpUsername, String signUpPassword, String signUpFname, String signUpLname, String signUpPhone)
     {
-        this.uid = uid;
-        onCreate();
+        this.userName=signUpUsername;
+        this.password=signUpPassword;
+        this.Fname= Hack.FormatString(signUpFname);
+        this.Lname= Hack.FormatString(signUpLname);
+        this.Phone=signUpPhone;
+        this.uid=this;
     }
 
-    private void onCreate() {
+    public void unBookCab(int i) {
+        bookedCabs.get(i).unbook();
+        bookedCabs.remove(i);
+    }
+
+    @Override
+    public boolean Authenticate(String pass) {
+        return pass.equals(password);
+    }
+
+
+
+    public void bookCab()
+    {
         Scanner sc = new Scanner(System.in);
-        hack.bigLine(30);
+        Hack.bigLine(30);
         System.out.println("\nEnter Your Requirements");
-        hack.bigLine(30);
+        Hack.bigLine(30);
         System.out.print("\n\nEnter No. Of Passengers: ");
-        int passengerCount = hack.TakeArithemeticInput();
+        int passengerCount = Hack.TakeArithemeticInput();
         System.out.print("Enter Initial Destination: ");
-        String fromCity = hack.FormatString(sc.next());
+        String fromCity = Hack.FormatString(sc.next());
         FindCityThread fromThread = new FindCityThread(fromCity);
         fromThread.start();
         FindCabThread fc = new FindCabThread(fromCity,passengerCount);
         fc.start();
         System.out.print("Enter Final Destination: ");
-        String toCity = hack.FormatString(sc.next());
+        String toCity = Hack.FormatString(sc.next());
         FindCityThread toThread = new FindCityThread(toCity);
         toThread.start();
         System.out.print("Duration Of Trip(in Days): ");
-        int days = hack.TakeArithemeticInput();
+        int days = Hack.TakeArithemeticInput();
         int frindex = fromThread.index;
         int toindex = toThread.index;
         int dist = Math.abs(frindex-toindex);
-        List<cab> results = fc.results;
+        List<Cab> results = fc.results;
         if (results.size() == 0)
         {
             System.out.println("\nNo Cabs From Given Location..");
             return;
         }
-        hack.bigLine();
-        hack.giveSpaces(3);
-        System.out.print("\nAvailable cabs:\n");
-        hack.bigLine();
+        Hack.bigLine();
+        Hack.giveLine();
+        Hack.giveSpaces(3);
+        System.out.print("Available cabs:\n");
+        Hack.bigLine();
+        System.out.print("\n");
         int i=1;
         int price;
-        for(cab result :results)
+        for(Cab result :results)
         {
-             price = result.pricePerKm*(dist%10)*(days*100);
+            price = result.pricePerKm*(dist%10)*(days*100);
             System.out.println(i+". From: "+result.from+" || To: "+toCity+" || Type: "+result.type+" || Price: "+price+" || Capacity: "+result.capacity);
             i++;
         }
         System.out.println(i+". Go back");
-        int option = hack.TakeArithemeticInput();
+        int option = Hack.TakeArithemeticInput();
         if(option==i)
             return;
         uid.bookedCabs.add(results.get(option-1));
-//        results.get(option-1).bookedByUser=uid;
-
         price = results.get(option-1).pricePerKm*(dist%10)*(days*100);
         results.get(option-1).book(uid,days,price);
     }

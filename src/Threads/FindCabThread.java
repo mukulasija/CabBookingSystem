@@ -7,7 +7,7 @@ import java.util.List;
 public class FindCabThread extends Thread{
     String from;
     int passengerCount;
-    public List<cab> results = new ArrayList<cab>();
+    public List<Cab> results = new ArrayList<Cab>();
     public FindCabThread(String from,int passengerCount)
     {this.from=from;
         this.passengerCount=passengerCount;
@@ -17,7 +17,7 @@ public class FindCabThread extends Thread{
     {
 //       userslist head = userslist.head;
 //       userslist temp = head;
-       cab temp = CabList.head;
+       Cab temp = CabList.head;
        while(temp!=null)
        {
            if(temp.from.equals(this.from) && temp.bookedByUser==null && temp.capacity>=passengerCount)

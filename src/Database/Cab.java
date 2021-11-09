@@ -1,18 +1,16 @@
 package Database;
 
-public class cab {
-//    public static cab head;
-//    public static cab tail;
-    public cab next;
+public class Cab {
+    public Cab next;
     public String from;
     public String driverName;
     public int pricePerKm;
     public String type;
     public int capacity;
-    public user bookedByUser = null;
+    public User bookedByUser = null;
     public int bookedForDays=0;
     public int bookingPrice=0;
-    public void book(user uid,int days,int price)
+    public void book(User uid, int days, int price)
     {
         this.bookedByUser=uid;
         this.bookedForDays=days;
@@ -24,12 +22,7 @@ public class cab {
         this.bookingPrice=0;
         this.bookedByUser=null;
     }
-//    public cab(String from, String type)
-//    {
-//        this.from = from;
-//        this.type= type;
-//    }
-    public cab(String from, String type, int pricePerKm, String driverName, int capacity)
+    public Cab(String from, String type, int pricePerKm, String driverName, int capacity)
     {
         this.from = from;
         this.type = type;

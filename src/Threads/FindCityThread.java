@@ -1,6 +1,6 @@
 package Threads;
 
-import Database.cities;
+import Database.Cities;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ public class FindCityThread extends Thread{
     }
     public void run()
     {
-        List<String> list = cities.citiesList;
+        List<String> list = Cities.citiesList;
        for(int i=0;i<list.size();i++)
        {
            if(list.get(i).equals(city))
@@ -22,7 +22,7 @@ public class FindCityThread extends Thread{
                return;
            }
        }
-       cities.syncCity(city);
+       Cities.syncCity(city);
 //       cities.citiesList.add(city);
        index=list.size();
     }

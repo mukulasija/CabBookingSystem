@@ -2,8 +2,8 @@ package Database;
 public class AllCitiesDataFile {
     public AllCitiesDataFile()
     {
-        cities.addCity("Delhi");
-        cities.addCity("sirsa");
-        cities.addCity("kanpur");
+        Cities.addCity("Delhi");
+        Cities.addCity("sirsa");
+        Cities.addCity("kanpur");
     }
 }

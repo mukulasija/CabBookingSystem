@@ -1,24 +1,32 @@
 package com.Activities;
 
-import Database.UserList;
-import Database.user;
-import Hacks.hack;
+import Database.User;
+import Hacks.Hack;
 
 import java.util.Scanner;
 
-public class UserDataManageFragment {
-    user uid;
-    public UserDataManageFragment(user uid)
+import static Hacks.Hack.*;
+public class UserDataFragment {
+    User uid;
+    public UserDataFragment(User uid)
     {
         this.uid = uid;
         onCreate();
     }
     private void onCreate()
     {
-        System.out.println("username:"+uid.getUsername()+" First Name: "+uid.getFname()+" Last Name: "+uid.getLname()+" Phone No: "+uid.getPhone());
+        giveLine(3);
+        bigLine(30);
+        giveLine();
+        giveSpaces(3);
+        System.out.print("Showing "+uid.getFname()+"'s Profile");
+        giveLine();
+        bigLine(30);
+        giveLine();
+        System.out.println("username:"+uid.getUsername()+" First Name: "+uid.getFname()+"\nLast Name: "+uid.getLname()+" Phone No: "+uid.getPhone());
         System.out.println("\n1.Change Username\n2.Change First Name\n3.Change Last Name\n4.Change Phone No\n5.Go back");
         Scanner sc = new Scanner(System.in);
-        int option= hack.TakeArithemeticInput();
+        int option= Hack.TakeArithemeticInput();
         switch (option)
         {
             case 1:

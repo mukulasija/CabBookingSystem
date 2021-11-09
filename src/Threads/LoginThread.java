@@ -1,13 +1,13 @@
 package Threads;
 
 import Database.UserList;
-import Database.user;
+import Database.User;
 
 public class LoginThread extends Thread{
     private final String username;
 //    private String pass =null;
-    private user uid = null;
-    public user getUid()
+    private User uid = null;
+    public User getUid()
     {
         return  uid;
     }
@@ -22,7 +22,7 @@ public class LoginThread extends Thread{
     }
     public void run()
     {
-        user temp = UserList.head;
+        User temp = UserList.head;
         while(temp!=null)
         {
             if(temp.getUsername().equals(this.username))

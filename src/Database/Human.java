@@ -20,11 +20,6 @@ public abstract class Human {
     public String getPhone() {
         return Phone;
     }
-
-//    public String getPassword()
-//    {
-//        return  password;
-//    }
     public void ChangeFnameWithPass()
     {
         Scanner sc = new Scanner(System.in);
