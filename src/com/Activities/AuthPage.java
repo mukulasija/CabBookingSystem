@@ -27,9 +27,6 @@ public class AuthPage {
             invalidOption();
             }
         }
-
-
-
     private void newsignup() {
         bigLine();
         giveLine();
@@ -49,8 +46,9 @@ public class AuthPage {
         String SignUpLname = sc.next();
         System.out.print("Enter Phone No: ");
         String SignUpPhone = sc.next();
+        //checkSameUsername thread completed execution
         if (checkSameUsername.result) {
-            validateUsername(SignUpUsername);
+            SignUpUsername = validateUsername(SignUpUsername);
         }
         String SignUpPassword = createPassword();
         User newUser = createUser(SignUpUsername, SignUpPassword, SignUpFname, SignUpLname, SignUpPhone);

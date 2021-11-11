@@ -29,7 +29,9 @@ public class UserActivity {
             System.out.println("\n--------------------------\nBooked Cabs:\n");
             int i=1;
             for (Cab result : uid.bookedCabs) {
-                System.out.println(i+".From:" + result.from + "  Type: " + result.type + "  Price: " + result.bookingPrice + "   Days: " + result.bookedForDays);
+                System.out.println(i + ".From:" + result.from + " || Type: " + result.type + " || Price: " + result.bookingPrice + " || Booked for "+result.bookedForDays+" Days");
+
+//                System.out.println(i+".From:" + result.from + "  Type: " + result.type + "  Price: " + result.bookingPrice + "   Days: " + result.bookedForDays);
                 i++;
             }
             System.out.println("--------------------------\n");
@@ -61,14 +63,16 @@ public class UserActivity {
     }
 
     private void CancelCab(User uid) {
-        System.out.println("\n--------------------------\nBooked Cabs:\n");
+        System.out.println("\n--------------------------\nCancel a Cab:\n");
         int i = 1;
+
         for (Cab result : uid.bookedCabs) {
-            System.out.println(i + ".From:" + result.from + " Type: " + result.type + " Price: " + result.pricePerKm + "(per km)");
+            System.out.println(i + ".From:" + result.from + " || Type: " + result.type + " || Price: " + result.bookingPrice + " || Booked for "+result.bookedForDays+" Days");
             i++;
         }
         System.out.println(i + ".Go back");
         System.out.println("--------------------------\n");
+        System.out.print("Choose an option:");
         Scanner sc = new Scanner(System.in);
         int option = Hack.TakeArithemeticInput();
         if (option == i)
@@ -79,13 +83,6 @@ public class UserActivity {
     private void logout() {
         System.out.print("logging out");
         showDots(3,500);
-//        for (int i = 0; i < 3; i++) {
-//            try {
-//                System.out.print(".");
-//                Thread.sleep(500);
-//            } catch (InterruptedException e) {
-//            }
-//        }
         System.out.println("\n");
     }
 }

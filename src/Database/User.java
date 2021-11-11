@@ -1,16 +1,14 @@
 package Database;
-
 import Hacks.Hack;
 import Threads.FindCabThread;
 import Threads.FindCityThread;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class User extends Human{
-    public User next = null;
-    private User uid = null;
+    public User next = null;//mukulasija->next=vivek , prajwal=2nd   mukul->next=prajwal->next=leesha  User newUser = new User(); newUser.getname
+    private User uid = null;  // User obj = new User();  User obj,uid,next,this
     private final String password;
     public List<Cab> bookedCabs = new ArrayList<Cab>();
     public User(String signUpUsername, String signUpPassword, String signUpFname, String signUpLname, String signUpPhone)
@@ -32,7 +30,6 @@ public class User extends Human{
     public boolean Authenticate(String pass) {
         return pass.equals(password);
     }
-
 
 
     public void bookCab()
@@ -74,7 +71,7 @@ public class User extends Human{
         int price;
         for(Cab result :results)
         {
-            price = result.pricePerKm*(dist%10)*(days*100);
+            price = result.cabPrice*(dist%10)*(days*100);
             System.out.println(i+". From: "+result.from+" || To: "+toCity+" || Type: "+result.type+" || Price: "+price+" || Capacity: "+result.capacity);
             i++;
         }
@@ -83,7 +80,7 @@ public class User extends Human{
         if(option==i)
             return;
         uid.bookedCabs.add(results.get(option-1));
-        price = results.get(option-1).pricePerKm*(dist%10)*(days*100);
-        results.get(option-1).book(uid,days,price);
+        price = results.get(option-1).cabPrice *(dist%10)*(days*100);
+        results.get(option-1).book(uid,days,price,toCity);
     }
 }
