@@ -15,14 +15,8 @@
     10. can give him option to cancel booked cabs
     11. option to change/update user creadentials
     12. To book for how many days in book cabs 
+    15. add Exception handling on inputs
 
 
 ######To Do:
-    4.  admin panel = No
-    13. To show driver details after thread sleep of book cab successfully
-    14. To generate invoice
-    15. add Exception handling on inputs
     16. delete mukul user from allcabfile
-
-##contributors:
-    1. prajwal , mukul => book cab

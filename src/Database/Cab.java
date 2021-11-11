@@ -2,15 +2,46 @@ package Database;
 
 public class Cab {
     public Cab next;
-    public String from;
-    public String driverName;
-    public int cabPrice;
-    public String type;
-    public int capacity;
-    public User bookedByUser = null;
-    public int bookedForDays=0;
-    public int bookingPrice=0;
-    public String bookedFinalcity;
+    private String from;
+    private int cabPrice;
+    private String type;
+    private int capacity;
+    private User bookedByUser = null;
+    private int bookedForDays=0;
+    private int bookingPrice=0;
+    private String bookedFinalcity;
+    public User getBookedByUser()
+    {
+        return bookedByUser;
+    }
+    public String getType()
+    {
+        return type;
+    }
+    public String getBookedFinalcity()
+    {
+        return bookedFinalcity;
+    }
+    public String getFromCity()
+    {
+        return from;
+    }
+    public int getPrice()
+    {
+        return cabPrice;
+    }
+    public int getCapacity()
+    {
+        return capacity;
+    }
+    public int getBookingPrice()
+    {
+        return bookingPrice;
+    }
+    public int getBookedForDays()
+    {
+        return bookedForDays;
+    }
     public void book(User uid, int days, int price,String tocity)
     {
         this.bookedByUser=uid;

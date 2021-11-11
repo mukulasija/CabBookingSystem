@@ -20,7 +20,7 @@ public class FindCabThread extends Thread{
        Cab temp = CabList.head;
        while(temp!=null)
        {
-           if(temp.from.equals(this.from) && temp.bookedByUser==null && temp.capacity>=passengerCount)
+           if(temp.getBookedByUser()==null && temp.getFromCity().equals(this.from) && temp.getCapacity()>=passengerCount)
            {
                results.add(temp);
            }

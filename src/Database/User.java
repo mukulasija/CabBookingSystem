@@ -15,9 +15,9 @@ public class User extends Human{
     {
         this.userName=signUpUsername;
         this.password=signUpPassword;
-        this.Fname= Hack.FormatString(signUpFname);
-        this.Lname= Hack.FormatString(signUpLname);
-        this.Phone=signUpPhone;
+        this.fname = Hack.FormatString(signUpFname);
+        this.lname = Hack.FormatString(signUpLname);
+        this.phone =signUpPhone;
         this.uid=this;
     }
 
@@ -52,6 +52,9 @@ public class User extends Human{
         toThread.start();
         System.out.print("Duration Of Trip(in Days): ");
         int days = Hack.TakeArithemeticInput();
+       try{fromThread.join();}catch(Exception ignored){}
+        try{toThread.join();}catch(Exception e){}
+        try{fc.join();}catch(Exception e){}
         int frindex = fromThread.index;
         int toindex = toThread.index;
         int dist = Math.abs(frindex-toindex);
@@ -71,16 +74,17 @@ public class User extends Human{
         int price;
         for(Cab result :results)
         {
-            price = result.cabPrice*(dist%10)*(days*100);
-            System.out.println(i+". From: "+result.from+" || To: "+toCity+" || Type: "+result.type+" || Price: "+price+" || Capacity: "+result.capacity);
+            price = result.getPrice()*(dist%10)*(days*100);
+            System.out.println(i+". From: "+result.getFromCity()+" || To: "+toCity+" || Type: "+result.getType()+" || Price: "+price+" || Capacity: "+result.getCapacity());
             i++;
         }
         System.out.println(i+". Go back");
+        System.out.print("Choose an option:");
         int option = Hack.TakeArithemeticInput();
         if(option==i)
             return;
         uid.bookedCabs.add(results.get(option-1));
-        price = results.get(option-1).cabPrice *(dist%10)*(days*100);
+        price = results.get(option-1).getPrice() *(dist%10)*(days*100);
         results.get(option-1).book(uid,days,price,toCity);
     }
 }

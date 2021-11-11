@@ -29,7 +29,8 @@ public class UserActivity {
             System.out.println("\n--------------------------\nBooked Cabs:\n");
             int i=1;
             for (Cab result : uid.bookedCabs) {
-                System.out.println(i + ".From:" + result.from + " || Type: " + result.type + " || Price: " + result.bookingPrice + " || Booked for "+result.bookedForDays+" Days");
+//                System.out.println(i + ".From:" + result.getFromCity() + " || Type: " + result.type + " || Price: " + result.bookingPrice + " || Booked for "+result.bookedForDays+" Days");
+                System.out.println(i + ".From:" + result.getFromCity() + " || Type: " + result.getType() + " || Price: " + result.getBookingPrice() + " || Booked for "+result.getBookedForDays()+" Days");
 
 //                System.out.println(i+".From:" + result.from + "  Type: " + result.type + "  Price: " + result.bookingPrice + "   Days: " + result.bookedForDays);
                 i++;
@@ -67,7 +68,7 @@ public class UserActivity {
         int i = 1;
 
         for (Cab result : uid.bookedCabs) {
-            System.out.println(i + ".From:" + result.from + " || Type: " + result.type + " || Price: " + result.bookingPrice + " || Booked for "+result.bookedForDays+" Days");
+            System.out.println(i + ".From:" + result.getFromCity() + " || Type: " + result.getType() + " || Price: " + result.getBookingPrice() + " || Booked for "+result.getBookedForDays()+" Days");
             i++;
         }
         System.out.println(i + ".Go back");

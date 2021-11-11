@@ -3,22 +3,22 @@ package Database;
 import java.util.Scanner;
 
 public abstract class Human {
-    protected String Fname;
-    protected String Lname;
-    protected String Phone;
+    protected String fname;
+    protected String lname;
+    protected String phone;
     protected  String userName;
     abstract boolean Authenticate(String pass);
     public String getUsername() {
         return this.userName;
     }
-    public String getFname(){return Fname;}
+    public String getFname(){return fname;}
 
     public String getLname() {
-        return Lname;
+        return lname;
     }
 
     public String getPhone() {
-        return Phone;
+        return phone;
     }
     public void ChangeFnameWithPass()
     {
@@ -29,7 +29,7 @@ public abstract class Human {
         String checkPass = sc.next();
         if (Authenticate(checkPass))
         {
-            Fname = newFname;
+            fname = newFname;
         }
         else
         {
@@ -45,7 +45,7 @@ public abstract class Human {
         String checkPass = sc.next();
         if (Authenticate(checkPass))
         {
-            Lname = newLname;
+            lname = newLname;
         }
         else
         {
@@ -61,7 +61,7 @@ public abstract class Human {
         String checkPass = sc.next();
         if (Authenticate(checkPass))
         {
-            Phone = newPhone;
+            phone = newPhone;
         }
         else
         {
