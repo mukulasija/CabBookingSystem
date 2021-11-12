@@ -59,9 +59,6 @@ public class UserDataFragment {
         uid.ChangeFnameWithPass();
     }
 
-    private void ChangeUsername() {
-        uid.ChangeUsernameWithPass();
-    }
     //TODO username should be unique
 
 }

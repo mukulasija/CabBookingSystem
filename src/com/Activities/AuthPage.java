@@ -3,7 +3,6 @@ package com.Activities;
 import Database.UserList;
 import Database.User;
 import Hacks.Hack;
-import Hacks.Hack.*;
 import Threads.CheckUserThread;
 import Threads.LoginThread;
 
@@ -46,6 +45,13 @@ public class AuthPage {
         String SignUpLname = sc.next();
         System.out.print("Enter Phone No: ");
         String SignUpPhone = sc.next();
+        try {
+            checkSameUsername.join();
+        }
+        catch (InterruptedException e)
+        {
+
+        }
         //checkSameUsername thread completed execution
         if (checkSameUsername.result) {
             SignUpUsername = validateUsername(SignUpUsername);
@@ -81,7 +87,6 @@ public class AuthPage {
     }
     private User createUser(String signUpUsername, String signUpPassword, String signUpFname, String signUpLname, String signUpPhone) {
         return UserList.addNewUser(signUpUsername, signUpPassword, signUpFname, signUpLname, signUpPhone);
-
     }
 
     private String createPassword() {
@@ -106,6 +111,12 @@ public class AuthPage {
         loginThread.start();
         System.out.print("Enter Password: ");
         String pass = sc.next();
+        try {
+            loginThread.join();
+        }catch (InterruptedException e)
+        {
+
+        }
 //        System.out.println("uid: "+loginThread.getUid());
         if(loginThread.getUid()!=null)
         {
